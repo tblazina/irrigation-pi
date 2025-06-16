@@ -3,13 +3,13 @@ echo "Pulling latest main branch from GitHub..."
 git checkout main
 git pull
 
-echo "Installing Python packages with Poetry..."
-poetry install --sync --without dev
+echo "installing python packages with uv..."
+uv sync
 
 echo "Restarting Uvicorn server..."
-poetry run irrigation-pi restart uvicorn
+uv run irrigation-pi restart uvicorn
 
 echo "Restarting nginx server..."
-poetry run irrigation-pi restart nginx
+uv run irrigation-pi restart nginx
 
 echo "Irrigation Pi application was updated and is now available on http://raspberrypi.local"
