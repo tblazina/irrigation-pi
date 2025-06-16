@@ -54,7 +54,9 @@ class ApplicationSettings(BaseSettings):
         origins: list[str] = [
             "http://localhost",
             "http://localhost:8100",
-            "http://raspberrypi.local",
+            #"http://raspberrypi.local",
+	    #"http://baeulipi.local",
+             "baeulipi.local"
         ]
         if_data: dict[str, Any] = net_if_addrs()
         for interface in if_data.values():

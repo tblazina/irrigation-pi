@@ -3,9 +3,6 @@
 from pathlib import Path
 
 DEBIAN_PACKAGES: list[str] = [
-    "python3-gpiozero",
-    "python3-pigpio",
-    "python3-rpi.gpio",
     "nginx",
 ]
 
@@ -26,7 +23,7 @@ SYSTEMD_CONFIG_PATH: Path = Path("/etc/systemd/system/irrigation-pi.service")
 APPLICATION_USER: str = PROJECT_ROOT_PATH.owner()
 APPLICATION_USER_GROUP: str = PROJECT_ROOT_PATH.group()
 
-HOST: str = "raspberrypi.local"
+HOST: str = "baeulipi.local"
 PORT: str = "80"
 
 NETWORKMANAGER_CONFIG_FILE: Path = Path("/etc/NetworkManager/NetworkManager.conf")

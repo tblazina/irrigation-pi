@@ -1,10 +1,29 @@
-[tool.poetry]
+[project]
 name = "irrigation-pi"
 version = "1.3.0"
 description = ""
-authors = ["Max Pfeiffer <max@maxpfeiffer.ch>"]
-license = "MIT"
+authors = [{ name = "Max Pfeiffer", email = "max@maxpfeiffer.ch" }]
+requires-python = "~=3.11"
 readme = "README.md"
+license = "MIT"
+dependencies = [
+    "alembic==1.14.1",
+    "APScheduler==3.10.4",
+    "asyncer==0.0.8",
+    "click==8.1.8",
+    "fastapi-slim==0.115.4",
+    "furl==2.1.3",
+    "psutil==6.1.0",
+    "pydantic-settings==2.7.1",
+    "semver==3.0.4",
+    "sqlalchemy==2.0.38",
+    "sqlmodel==0.0.22",
+    "toml==0.10.2",
+    "uvicorn[standard]==0.31.0",
+    "gpiozero==2.0.1",
+    "pigpio==1.78",
+    "rpi-lgpio>=0.6",
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -22,9 +41,16 @@ sqlmodel = "0.0.24"
 toml = "0.10.2"
 uvicorn = {version = "0.34.3", extras = ["standard"]}
 
-gpiozero = "2.0.1"
-pigpio = "1.78"
-"RPi.GPIO" = {version = "0.7.1", markers= "sys_platform == 'linux'"}
+[dependency-groups]
+dev = [
+    "coverage==7.6.10",
+    "pre-commit==4.2.0",
+    "pytest==8.3.5",
+    "pytest-asyncio==0.26.0",
+    "pytest-cov==6.0.0",
+    "httpx==0.28.1",
+    "ruff==0.9.4",
+]
 
 [tool.poetry.group.dev.dependencies]
 coverage = "7.8.2"
@@ -56,14 +82,9 @@ select = [
 [tool.ruff.lint.pydocstyle]
 convention = "pep257"
 
-# https://docs.pytest.org/en/latest/reference/customize.html
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = [
     "irrigation_pi/tests",
     "backend/tests"
 ]
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

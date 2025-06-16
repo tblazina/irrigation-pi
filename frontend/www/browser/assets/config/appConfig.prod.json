@@ -1,5 +1,5 @@
 {
   "api": {
-    "host": "http://raspberrypi.local/api"
+    "host": "http://baeulipi.local/api"
   }
 }
